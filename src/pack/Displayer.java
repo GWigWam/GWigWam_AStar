@@ -14,7 +14,7 @@ public class Displayer {
 	final int screenWidth = 600;
 	final int screenHeight = 600;
 	final int blockSize = 4;
-	final int calcSpeed = 100; //0 = complete path every frame, 1 = once per frame, 2 = every other frame etc: 0 IS SPECIAL! 0 solves it instanly, while other numbers solve it in VISIBLE steps
+	final int calcSpeed = 10; //0 = complete path every frame, 1 = once per frame, 2 = every other frame etc: 0 IS SPECIAL! 0 solves it instanly, while other numbers solve it in VISIBLE steps
 	
 	boolean computedStartBlock = false;
 	
@@ -38,7 +38,7 @@ public class Displayer {
 	Block[] blokken = new Block[(screenHeight / blockSize) * (screenWidth / blockSize)];
 	
 	Displayer(){ // CONSTRUCTOR
-		System.setProperty("org.lwjgl.librarypath",System.getProperty("user.dir") + "\\lwjgl-2.8.5\\native\\windows");
+		//System.setProperty("org.lwjgl.librarypath",System.getProperty("user.dir") + "\\lwjgl-2.8.5\\native\\windows");
 		initGL(screenWidth, screenHeight);
 		load();
 		startDisplayLoop();
@@ -161,7 +161,7 @@ public class Displayer {
 
 	private void endThisLoop(){
 		//FPS meter
-		if (time <= System.currentTimeMillis() - 1000){			
+		if (time <= System.currentTimeMillis() - 1000){
 			Display.setTitle("Finding paths @ " + frameNumber + " FPS"); //Normal
 			FPS = frameNumber;
 			frameNumber = 0;
