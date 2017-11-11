@@ -1,0 +1,3 @@
+Made-By: GWigWam
+Class-Path: lwjgl.jar
+
